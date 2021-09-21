@@ -8,7 +8,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier:format": "prettier '**/*' --ignore-unknown --write"
   },
   "name": "layer0-static-react-example",
   "version": "0.1.0",
@@ -20,10 +21,11 @@
     "react-scripts": "^4.0.3"
   },
   "devDependencies": {
-    "@layer0/cli": "^3.16.8",
-    "@layer0/core": "^3.16.8",
-    "@layer0/devtools": "^3.16.8",
-    "@layer0/prefetch": "^3.16.8"
+    "@layer0/cli": "^3.16.11",
+    "@layer0/core": "^3.16.11",
+    "@layer0/devtools": "^3.16.11",
+    "@layer0/prefetch": "^3.16.11",
+    "prettier": "^2.4.1"
   },
   "browserslist": {
     "production": [

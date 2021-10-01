@@ -23,8 +23,12 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 ul {
@@ -44,7 +48,7 @@ ul {
   height: 40px;
   border-bottom: 1px solid #888;
 }
- 
+
 .menu a {
   text-decoration: none;
   color: #fff;

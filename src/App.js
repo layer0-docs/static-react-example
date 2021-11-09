@@ -1,10 +1,8 @@
-import { Helmet } from 'react-helmet'
-import React, { useEffect, useState } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from './components/Home'
-import About from './components/About'
+import { Helmet } from 'react-helmet'
 import Header from './components/Header'
-import Messages from './components/Messages'
+import { useEffect, useState } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import { prefetch } from '@layer0/prefetch/window/prefetch'
 
 const App = () => {

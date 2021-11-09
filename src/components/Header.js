@@ -54,7 +54,7 @@ export default function Header() {
                     key={categoryName}
                     className={activeTab === i ? 'border-b-[3px] border-[#ff0000]' : null}
                   >
-                    <Link to={href} passHref>
+                    <Link to={href}>
                       <Prefetch>
                         <a>{categoryName}</a>
                       </Prefetch>

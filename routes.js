@@ -3,6 +3,8 @@
 
 const { Router } = require('@layer0/core/router')
 
+import { SSR_CACHE_HANDLER, API_CACHE_HANDLER, NEXT_CACHE_HANDLER } from './layer0/cache'
+
 const ONE_HOUR = 60 * 60
 const ONE_DAY = 24 * ONE_HOUR
 const ONE_YEAR = 365 * ONE_DAY
@@ -19,6 +21,7 @@ const edgeAndBrowser = {
 
 module.exports = new Router()
   .prerender([{ path: '/' }])
+  .match('/api/:path*', API_CACHE_HANDLER)
 
   // match routes for js/css resources and serve the static files
   .match('/static/:path*', ({ serveStatic, cache }) => {

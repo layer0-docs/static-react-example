@@ -2,8 +2,10 @@ import Home from './components/Home'
 import { Helmet } from 'react-helmet'
 import Header from './components/Header'
 import { useEffect, useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import ProductPage from './components/ProductPage'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { prefetch } from '@layer0/prefetch/window/prefetch'
+import ProductListingPage from './components/ProductListingPage'
 
 const App = () => {
   const [mounted, setMounted] = useState('print')
@@ -32,9 +34,9 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        {/* <Route path="/messages" component={Messages} />
-        <Route path="/about" component={About} />
-        <Redirect to="/" /> */}
+        <Route path="/category/:slug" component={ProductListingPage} />
+        <Route path="/product/:slug" component={ProductPage} />
+        <Redirect to="/" />
       </Switch>
     </>
   )

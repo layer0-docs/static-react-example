@@ -41,14 +41,13 @@ export default function Header() {
           {categories && (
             <div className={`py-4 w-2/3 md:flex flex flex-row justify-between`}>
               {categories.map(({ categoryName, href }, i) => {
-                console.log('categoryName', categoryName)
                 return (
                   <div
                     key={categoryName}
                     className={activeTab === i ? 'border-b-[3px] border-[#ff0000]' : null}
                   >
                     <Link to={href}>
-                      <Prefetch url={`/api/category/${categoryName}`}>
+                      <Prefetch url={`/api/category/${categoryName.toLowerCase()}`}>
                         <a>{categoryName}</a>
                       </Prefetch>
                     </Link>

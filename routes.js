@@ -22,6 +22,7 @@ const edgeAndBrowser = {
 module.exports = new Router()
   .prerender([{ path: '/' }])
   .match('/api/:path*', API_CACHE_HANDLER)
+  .match('/images/:path*', API_CACHE_HANDLER)
 
   // match routes for js/css resources and serve the static files
   .match('/static/:path*', ({ serveStatic, cache }) => {

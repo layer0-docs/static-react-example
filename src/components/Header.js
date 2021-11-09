@@ -48,7 +48,7 @@ export default function Header() {
                     className={activeTab === i ? 'border-b-[3px] border-[#ff0000]' : null}
                   >
                     <Link to={href}>
-                      <Prefetch url="/api/category/categoryName">
+                      <Prefetch url={`/api/category/${categoryName}`}>
                         <a>{categoryName}</a>
                       </Prefetch>
                     </Link>

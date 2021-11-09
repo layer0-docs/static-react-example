@@ -9,23 +9,33 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "prettier:format": "prettier '**/*' --ignore-unknown --write"
+    "prettier:format": "prettier '**/*' --ignore-unknown --write",
+    "craco:start": "craco start",
+    "craco:build": "craco build",
+    "craco:test": "craco test"
   },
   "name": "layer0-static-react-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@layer0/react": "^4.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "^4.0.3"
+    "react-scripts": "^4.0.3",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
+    "@craco/craco": "^6.4.0",
     "@layer0/cli": "^3.16.11",
     "@layer0/core": "^3.16.11",
     "@layer0/devtools": "^3.16.11",
     "@layer0/prefetch": "^3.16.11",
-    "prettier": "^2.4.1"
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "prettier": "^2.4.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   },
   "browserslist": {
     "production": [

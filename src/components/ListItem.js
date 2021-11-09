@@ -2,10 +2,10 @@ import Rating from './Rating'
 import { Link } from 'react-router-dom'
 import { Prefetch } from '@layer0/react'
 
-const ListItem = ({ product, prefetchProps = {} }) => {
+const ListItem = ({ product }) => {
   return (
     <Link to={product.href}>
-      <Prefetch {...prefetchProps}>
+      <Prefetch url={`/api/product/${product.href}`}>
         <a>
           <div className="relative flex flex-col items-center">
             <div

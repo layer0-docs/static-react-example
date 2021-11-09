@@ -41,21 +41,14 @@ export default function Header() {
           {categories && (
             <div className={`py-4 w-2/3 md:flex flex flex-row justify-between`}>
               {categories.map(({ categoryName, href }, i) => {
-                //   const prefetchProps = {}
-                //   if (process.browser) {
-                //     // prefetch URL needs to include the `name` param otherwise it will be a browser miss
-                //     prefetchProps.url = `/_next/data/${__NEXT_DATA__.buildId}${href}.json?name=${
-                //       href.split('/').reverse()[0]
-                //     }`
-                //   }
-
+                console.log('categoryName', categoryName)
                 return (
                   <div
                     key={categoryName}
                     className={activeTab === i ? 'border-b-[3px] border-[#ff0000]' : null}
                   >
                     <Link to={href}>
-                      <Prefetch>
+                      <Prefetch url="/api/category/categoryName">
                         <a>{categoryName}</a>
                       </Prefetch>
                     </Link>

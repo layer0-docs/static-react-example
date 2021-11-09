@@ -3,7 +3,7 @@
 
 const { Router } = require('@layer0/core/router')
 
-import { SSR_CACHE_HANDLER, API_CACHE_HANDLER, NEXT_CACHE_HANDLER } from './layer0/cache'
+import { API_CACHE_HANDLER } from './layer0/cache'
 
 const ONE_HOUR = 60 * 60
 const ONE_DAY = 24 * ONE_HOUR

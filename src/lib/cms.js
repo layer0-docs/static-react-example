@@ -10,9 +10,8 @@ if (typeof window !== 'undefined') {
 }
 
 export function getOptimizedImageUrl(path) {
-  return `https://opt.moovweb.net?quality=30&height=250&width=250&img=${encodeURIComponent(
-    apiUrl + path
-  )}`
+  const apiPath = encodeURIComponent(apiUrl + path)
+  return `https://opt.moovweb.net?quality=30&height=250&width=250&img=${apiPath}`
 }
 
 /**

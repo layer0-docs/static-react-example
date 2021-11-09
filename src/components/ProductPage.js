@@ -10,14 +10,16 @@ export default function ProductPage({ match }) {
   const [product, setProduct] = useState()
   const [meta, setMeta] = useState({})
   useEffect(async () => {
-    const { product } = await getProductById(slug)
-    setProduct(product)
-    setMeta({
-      title: product.name,
-      description: product.description,
-      url: `https://layer0-docs-layer0-next-example-default.layer0.link/product/${slug}`,
-      image: `https://layer0-docs-og-image-default.layer0.link/api?title=${product.name}&width=1400&height=720`,
-    })
+    if (slug) {
+      const { product } = await getProductById(slug)
+      setProduct(product)
+      setMeta({
+        title: product.name,
+        description: product.description,
+        url: `https://layer0-docs-layer0-next-example-default.layer0.link/product/${slug}`,
+        image: `https://layer0-docs-og-image-default.layer0.link/api?title=${product.name}&width=1400&height=720`,
+      })
+    }
   }, [location])
   return (
     <>

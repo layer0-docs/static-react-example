@@ -2,8 +2,8 @@
   "scripts": {
     "layer0": "layer0",
     "layer0:dev": "layer0 dev",
-    "layer0:build": "npm run build && layer0 build",
-    "layer0:deploy": "npm run build && layer0 deploy layer0-docs",
+    "layer0:build": "npm run craco:build && layer0 build && layer0 deploy --skip-build",
+    "layer0:deploy": "npm run craco:build && layer0 build && layer0 deploy layer0-docs --skip-build",
     "deploy": "npm run build && layer0 deploy",
     "start": "react-scripts start",
     "build": "react-scripts build",

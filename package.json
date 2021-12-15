@@ -2,9 +2,8 @@
   "scripts": {
     "layer0": "layer0",
     "layer0:dev": "layer0 dev",
-    "layer0:build": "npm run craco:build && layer0 build",
-    "layer0:deploy": "npm run craco:build && layer0 deploy layer0-docs",
-    "deploy": "npm run craco:build && layer0 deploy",
+    "layer0:build": "layer0 build",
+    "deploy": "layer0 deploy",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

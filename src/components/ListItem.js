@@ -1,8 +1,8 @@
-import Rating from './Rating'
-import { Link } from 'react-router-dom'
-import { Prefetch } from '@layer0/react'
+import { Rating } from ".";
+import { Link } from "react-router-dom";
+import { Prefetch } from "@layer0/react";
 
-const ListItem = ({ product }) => {
+export const ListItem = ({ product }) => {
   return (
     <Link to={product.href}>
       <Prefetch url={`/api${product.href}`}>
@@ -19,7 +19,5 @@ const ListItem = ({ product }) => {
         </a>
       </Prefetch>
     </Link>
-  )
-}
-
-export default ListItem
+  );
+};

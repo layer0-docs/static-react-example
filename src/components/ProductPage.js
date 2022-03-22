@@ -1,26 +1,27 @@
-import Seo from './Seo'
-import Rating from './Rating'
-import { getProductById } from '../lib/cms'
-import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Seo, Rating } from '.';
+import { getProductById } from '../lib/cms';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-export default function ProductPage({ match }) {
-  let location = useLocation()
-  const { slug } = match.params
-  const [product, setProduct] = useState()
-  const [meta, setMeta] = useState({})
-  useEffect(async () => {
-    if (slug) {
-      const { product } = await getProductById(slug)
-      setProduct(product)
+export function ProductPage() {
+  const { slug } = useParams();
+  const [product, setProduct] = useState();
+  const [meta, setMeta] = useState({});
+
+  useEffect(() => {
+    async function fetchProduct() {
+      const { product } = await getProductById(slug);
+      setProduct(product);
       setMeta({
         title: product.name,
         description: product.description,
         url: `https://layer0-docs-layer0-next-example-default.layer0.link/product/${slug}`,
         image: `https://layer0-docs-og-image-default.layer0.link/api?title=${product.name}&width=1400&height=720`,
-      })
+      });
     }
-  }, [location])
+    fetchProduct();
+  }, [slug]);
+
   return (
     <>
       <Seo {...meta} />
@@ -43,5 +44,5 @@ export default function ProductPage({ match }) {
         </div>
       </div>
     </>
-  )
+  );
 }

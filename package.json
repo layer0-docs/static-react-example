@@ -22,7 +22,8 @@
     "layer0:dev": "npm run build && layer0 dev",
     "layer0:build": "layer0 build",
     "layer0:production": "npm run build && layer0 build && layer0 run --production",
-    "layer0:deploy": "npm run build && layer0 deploy"
+    "layer0:build:deploy": "npm run build && layer0 deploy",
+    "layer0:deploy": "layer0 deploy"
   },
   "eslintConfig": {
     "extends": [

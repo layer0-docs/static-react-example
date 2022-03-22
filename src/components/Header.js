@@ -1,28 +1,20 @@
-import { Link } from 'react-router-dom'
-import { Prefetch } from '@layer0/react'
-import { getCategories } from '../lib/cms'
-import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import { Prefetch } from '@layer0/react';
+import { getCategories } from '../lib/cms';
+import { useEffect, useState } from 'react';
 
-export default function Header() {
-  const [categories, setCategories] = useState()
-  const [activeTab, setActiveTab] = useState()
+export function Header() {
+  const [categories, setCategories] = useState();
+  const [activeTab, setActiveTab] = useState();
   //   const router = useRouter()
 
   useEffect(() => {
     async function fetchCategories() {
-      const { categories: results } = await getCategories()
-      setCategories(results)
+      const { categories: results } = await getCategories();
+      setCategories(results);
     }
-    fetchCategories()
-  }, [])
-
-  //   useEffect(() => {
-  //     router.events.on('routeChangeComplete', (url) => {
-  //       if (categories) {
-  //         setActiveTab(categories.findIndex(({ href }) => href === url))
-  //       }
-  //     })
-  //   }, [categories])
+    fetchCategories();
+  }, []);
 
   return (
     <>
@@ -52,12 +44,12 @@ export default function Header() {
                       </Prefetch>
                     </Link>
                   </div>
-                )
+                );
               })}
             </div>
           )}
         </div>
       </header>
     </>
-  )
+  );
 }

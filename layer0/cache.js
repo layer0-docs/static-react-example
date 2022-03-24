@@ -1,4 +1,4 @@
-export const API_CACHE_HANDLER = ({ cache, proxy }) => {
+export const API_CACHE_HANDLER = ({ cache, proxy, removeUpstreamResponseHeader }) => {
   removeUpstreamResponseHeader('cache-control')
   cache({
     browser: {

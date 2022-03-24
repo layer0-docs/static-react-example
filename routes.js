@@ -18,9 +18,35 @@ const edgeAndBrowser = {
   edge: { maxAgeSeconds: ONE_YEAR },
 }
 
+const categories = ['hats', 'shoes', 'watches']
+let productUrls = []
+categories
+  .map((c) => {
+    const page = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
+      path: `/product/${c}-${i}`,
+    }))
+    const apiPage = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
+      path: `/api/product/${c}-${i}`,
+    }))
+    return [...page, ...apiPage]
+  })
+  .map((pu) => (productUrls = [...productUrls, ...pu]))
+
 export default new Router()
 
-  .prerender([{ path: '/' }])
+  .prerender([
+    // HTML pages
+    { path: '/' },
+    { path: '/categories/shoes' },
+    { path: '/categories/watches' },
+    { path: '/categories/hats' },
+    { path: '/api/categories/shoes' },
+    { path: '/api/categories/watches' },
+    { path: '/api/categories/hats' },
+
+    // Products
+    ...productUrls,
+  ])
   .match('/api/:path*', API_CACHE_HANDLER)
   .match('/images/:path*', API_CACHE_HANDLER)
   .match('/service-worker.js', ({ serviceWorker }) => serviceWorker('build/service-worker.js'))

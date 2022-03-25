@@ -1,4 +1,4 @@
-export const API_CACHE_HANDLER = ({ removeUpstreamResponseHeader, cache, proxy }) => {
+export const API_CACHE_HANDLER = ({ cache, proxy, removeUpstreamResponseHeader }) => {
   removeUpstreamResponseHeader('cache-control')
   cache({
     browser: {
@@ -6,7 +6,8 @@ export const API_CACHE_HANDLER = ({ removeUpstreamResponseHeader, cache, proxy }
       serviceWorkerSeconds: 60 * 60 * 24,
     },
     edge: {
-      maxAgeSeconds: 60 * 60 * 24 * 365 * 10,
+      forcePrivateCaching: true,
+      maxAgeSeconds: 60 * 60 * 24 * 365,
       staleWhileRevalidateSeconds: 60 * 60 * 24,
     },
   })

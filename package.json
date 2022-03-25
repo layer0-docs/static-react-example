@@ -1,40 +1,35 @@
 {
-  "scripts": {
-    "layer0": "layer0",
-    "layer0:dev": "layer0 dev",
-    "layer0:build": "layer0 build",
-    "layer0:deploy": "layer0 deploy",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "prettier:format": "prettier '**/*' --ignore-unknown --write",
-    "craco:start": "craco start",
-    "craco:build": "craco build",
-    "craco:test": "craco test"
-  },
-  "name": "layer0-static-react-example",
+  "name": "layer0-react-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@layer0/react": "^4.2.0",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-router-dom": "^5.3.0",
-    "react-scripts": "^4.0.3",
+    "react-router-dom": "^6.2.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.4",
     "whatwg-fetch": "^3.6.2"
   },
-  "devDependencies": {
-    "@craco/craco": "^6.4.0",
-    "@layer0/cli": "^3.16.11",
-    "@layer0/core": "^3.16.11",
-    "@layer0/devtools": "^3.16.11",
-    "@layer0/prefetch": "^3.16.11",
-    "autoprefixer": "^9.8.8",
-    "postcss": "^7.0.39",
-    "prettier": "^2.4.1",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "layer0:dev": "npm run build && layer0 dev",
+    "layer0:build": "layer0 build",
+    "layer0:production": "npm run build && layer0 build && layer0 run --production",
+    "layer0:build:deploy": "npm run build && layer0 deploy",
+    "layer0:deploy": "layer0 deploy"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -47,5 +42,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@layer0/cli": "^4.10.3",
+    "@layer0/core": "^4.10.3",
+    "@layer0/devtools": "^4.10.3",
+    "@layer0/prefetch": "^4.10.3",
+    "@layer0/react": "^4.10.3",
+    "autoprefixer": "^10.4.3",
+    "postcss": "^8.4.11",
+    "tailwindcss": "^3.0.23"
   }
 }

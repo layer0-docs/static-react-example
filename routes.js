@@ -1,8 +1,7 @@
 // This file was added by layer0 init.
 // You should commit this file to source control.
 
-const { Router } = require('@layer0/core/router')
-
+import { Router } from '@layer0/core/router'
 import { API_CACHE_HANDLER } from './layer0/cache'
 
 const ONE_HOUR = 60 * 60
@@ -19,10 +18,38 @@ const edgeAndBrowser = {
   edge: { maxAgeSeconds: ONE_YEAR },
 }
 
-module.exports = new Router()
-  .prerender([{ path: '/' }])
+const categories = ['hats', 'shoes', 'watches']
+let productUrls = []
+categories
+  .map((c) => {
+    const page = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
+      path: `/product/${c}-${i}`,
+    }))
+    const apiPage = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
+      path: `/api/product/${c}-${i}`,
+    }))
+    return [...page, ...apiPage]
+  })
+  .map((pu) => (productUrls = [...productUrls, ...pu]))
+
+export default new Router()
+
+  .prerender([
+    // HTML pages
+    { path: '/' },
+    { path: '/categories/shoes' },
+    { path: '/categories/watches' },
+    { path: '/categories/hats' },
+    { path: '/api/categories/shoes' },
+    { path: '/api/categories/watches' },
+    { path: '/api/categories/hats' },
+
+    // Products
+    ...productUrls,
+  ])
   .match('/api/:path*', API_CACHE_HANDLER)
   .match('/images/:path*', API_CACHE_HANDLER)
+  .match('/service-worker.js', ({ serviceWorker }) => serviceWorker('build/service-worker.js'))
 
   // match routes for js/css resources and serve the static files
   .match('/static/:path*', ({ serveStatic, cache }) => {
@@ -41,5 +68,6 @@ module.exports = new Router()
     cache(edgeOnly)
     serveStatic('build/:path*')
   })
-  // send any unmatched request to serve the static index.html
+
+  // send any unmatched request to origin
   .fallback(({ serveStatic }) => serveStatic('build/index.html'))
